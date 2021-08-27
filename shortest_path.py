@@ -16,7 +16,7 @@ for coord_inerte in layer_inertes.getFeatures():
         starty = coord_inerte.geometry().asPoint()[1]
         endx = coor_est.geometry().asPoint()[0]
         endy = coor_est.geometry().asPoint()[1]
-        print(f"Gerando caminho do inerte ponto {coord_inerte.attributes()[0]} para a subestação {coor_est.attributes()[0]}")
+        print(f"Gerando caminho da origem {coord_inerte.attributes()[0]} para destino {coor_est.attributes()[0]}")
         processing.run("qneat3:shortestpathpointtopoint", 
         {'INPUT':path_roads,
         'START_POINT':f"{startx},{starty}[EPSG:4674]",
@@ -58,7 +58,7 @@ for lista in lista2:
 
 
 ## Step 03: Create fields with a class (id of point) and measure lines
-out_path = '/home/newmar/Downloads/patricia/originais/base_dados/finais'
+out_path = '/home/newmar/Downloads/shortest/originais/base_dados/finais'
 
 vectors = []
 for root, directory, files in os.walk(out_path):
